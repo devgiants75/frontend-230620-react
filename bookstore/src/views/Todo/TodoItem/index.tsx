@@ -1,6 +1,7 @@
 import React from 'react';
 import styled, {css} from 'styled-components';
 import { MdDelete, MdDone } from 'react-icons/md'
+import { useStore } from '../stores/store';
 
 const Remove = styled.div`
     display: flex;
@@ -52,17 +53,20 @@ const Text = styled.div<{ done: boolean }>`
 `;
 
 interface TodoItemProps {
-    id?: number;
+    id: number;
     done: boolean;
     text: string;
 }
 
 function TodoItem({ id, done, text }: TodoItemProps) {
+    const toggleTodo = useStore((state) => state.toggleTodo);
+    const removeTodo = useStore((state) => state.removeTodo)
+
   return (
     <TodoItemBlock>
-        <CheckCircle done={done}>{done && <MdDone />}</CheckCircle>
+        <CheckCircle done={done} onClick={() => toggleTodo(id)}>{done && <MdDone />}</CheckCircle>
         <Text done={done}>{text}</Text>
-        <Remove>
+        <Remove onClick={() => removeTodo(id)}>
             <MdDelete />
         </Remove>
     </TodoItemBlock>
