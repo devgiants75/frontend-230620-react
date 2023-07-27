@@ -14,8 +14,9 @@ function TodoList() {
   const todos = useStore((state) => state.todos)
   return (
   <TodoListBlock>
-    
-    <TodoItem key={todo.id} id={todo.id}text={todo.text} done={todo.done}/>
+    {todos.map((todo) => (
+      <TodoItem key={todo.id} id={todo.id}text={todo.text} done={todo.done}/>
+    ))}
   </TodoListBlock>
   );
 }

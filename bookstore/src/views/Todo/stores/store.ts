@@ -1,4 +1,5 @@
 import create from 'zustand'
+import { MockTodos } from '../mocks/MockData';
 
 type Todo = {
     id: number;
@@ -15,12 +16,13 @@ type TodoState = {
 }
 
 export const useStore = create<TodoState>((set) => ({
-    todos: [
-        { id: 1, text: '평일 웹 프론트엔드', done: false},
-        { id: 2, text: '주말 웹 프론트엔드', done: false},
-        { id: 3, text: '평일 방학특강 자바', done: true},
-        { id: 4, text: '평일 방학특강 파이썬', done: true},
-    ],
+    // todos: [
+    //     { id: 1, text: '평일 웹 프론트엔드', done: false},
+    //     { id: 2, text: '주말 웹 프론트엔드', done: false},
+    //     { id: 3, text: '평일 방학특강 자바', done: true},
+    //     { id: 4, text: '평일 방학특강 파이썬', done: true},
+    // ],
+    todos: MockTodos,
     addTodo: (todo) => set((state) => ({ todos: [...state.todos, todo]})),
     countTasks: (state) => state.todos.filter(todo => !todo.done).length,
     toggleTodo: (id: number) => set((state) => ({
