@@ -140,15 +140,23 @@ export default function UserAskList() {
               >
                 <Box style={{ paddingTop: "1vw" }}>
                   <ButtonGroup>
-                    <Button onClick={() => onAskDateTimeHandler(0)}>전체</Button>
-                    <Button onClick={() => onAskDateTimeHandler(1)}>1개월</Button>
-                    <Button onClick={() => onAskDateTimeHandler(3)}>3개월</Button>
-                    <Button onClick={() => onAskDateTimeHandler(6)}>6개월</Button>
+                    <Button onClick={() => onAskDateTimeHandler(0)}>
+                      전체
+                    </Button>
+                    <Button onClick={() => onAskDateTimeHandler(1)}>
+                      1개월
+                    </Button>
+                    <Button onClick={() => onAskDateTimeHandler(3)}>
+                      3개월
+                    </Button>
+                    <Button onClick={() => onAskDateTimeHandler(6)}>
+                      6개월
+                    </Button>
                   </ButtonGroup>
                 </Box>
                 {/* Select 구성 요소를 사용하여 사용자가 값을 선택 가능 */}
 
-                <Box display={'flex'}>
+                <Box display={"flex"}>
                   <InputLabel>답변 상태</InputLabel>
                   <Select
                     labelId="demo-simple-select-label"
@@ -158,11 +166,11 @@ export default function UserAskList() {
                     label="Select AskStatus"
                     onChange={handleChange}
                   >
-                    <MenuItem value={'문의 접수'}>문의 접수 </MenuItem>
-                    <MenuItem value={'답변 완료'}>답변 완료</MenuItem>
+                    <MenuItem value={"문의 접수"}>문의 접수 </MenuItem>
+                    <MenuItem value={"답변 완료"}>답변 완료</MenuItem>
                   </Select>
                 </Box>
-                <Box display={'flex'}>
+                <Box display={"flex"}>
                   <InputLabel>문의 종류</InputLabel>
                   <Select
                     labelId="demo-simple-select-label"
@@ -172,36 +180,41 @@ export default function UserAskList() {
                     label="Select AskSort"
                     onChange={handleChange}
                   >
-                    <MenuItem value={'제품 문의'}>제품 문의</MenuItem>
-                    <MenuItem value={'주문/결제 문의'}>주문/결제 문의</MenuItem>
-                    <MenuItem value={'교환/취소 문의'}>교환/취소 문의</MenuItem>
+                    <MenuItem value={"제품 문의"}>제품 문의</MenuItem>
+                    <MenuItem value={"주문/결제 문의"}>주문/결제 문의</MenuItem>
+                    <MenuItem value={"교환/취소 문의"}>교환/취소 문의</MenuItem>
                   </Select>
                 </Box>
-                <Button fullWidth variant='outlined' onClick={askSearch}>조회하기</Button>
-                
+                <Button fullWidth variant="outlined" onClick={askSearch}>
+                  조회하기
+                </Button>
+                <Box>
+                  <Link to={"/userAskWriter"}>
+                    <Button fullWidth variant="contained">
+                      문의 작성하기
+                    </Button>
+                  </Link>
+                </Box>
                 {askList.map((ask) => (
                   <>
-                  <Box>
-                    <Typography>
-                      {ask.askId}
-                    </Typography>
-                    <Typography>
-                      {ask.askSort}
-                    </Typography>
-                    <Typography>
-                      {ask.askTitle}
-                    </Typography>
-                    <Typography>
-                      {ask.askStatus}
-                    </Typography>
-                    <Typography>
-                      {ask.askDatetime}
-                    </Typography>
-                  </Box>
-                  <Link to={`/userAskUpdate/${ask.askId}`}><Button>수정</Button></Link>
-                  <Button fullWidth variant='outlined' onClick={() => askDelete(ask.askId)}>삭 제</Button>
+                    <Box>
+                      <Typography>{ask.askId}</Typography>
+                      <Typography>{ask.askSort}</Typography>
+                      <Typography>{ask.askTitle}</Typography>
+                      <Typography>{ask.askStatus}</Typography>
+                      <Typography>{ask.askDatetime}</Typography>
+                    </Box>
+                    <Link to={`/userAskUpdate/${ask.askId}`}>
+                      <Button>수정</Button>
+                    </Link>
+                    <Button
+                      fullWidth
+                      variant="outlined"
+                      onClick={() => askDelete(ask.askId)}
+                    >
+                      삭 제
+                    </Button>
                   </>
-
                 ))}
               </Card>
             </Box>

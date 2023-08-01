@@ -5,7 +5,7 @@ import useUserStore from '../../../stores/user.store'
 import axios from "axios";
 import { mockUser } from '../../../mocks/mockUserData'
 
-export default function UseAskUpdate() {
+export default function UseAskWriter() {
   //! useParams
   // : react-router에서 제공하는 Hooks
   // : 파라미터(Parameter) 값을 URL을 통해서 넘긴 후
@@ -16,6 +16,8 @@ export default function UseAskUpdate() {
   // : 영화의 id값을 URL로 넘겨 세부 페이지에 id값에 해당하는 영화 정보만 출력하도록 설정
 
   // npm install react-router-dom (react-router-dom을 설치)
+
+  // 해당 경로 지정 시 URL 마지막에 '/:파라미터(변수)'
 
   // useParams 정보를 변수에 저장
   const { askId } = useParams();
