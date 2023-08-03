@@ -4,9 +4,8 @@ import './App.css';
 import { Outlet, Routes, Route } from 'react-router-dom';
 
 import Footer from './components/Footer';
-import Nav from './components/Footer';
+import Nav from './components/Nav';
 import DetailPage from './pages/DetailPage';
-
 
 // <{}>: props를 받지 않는다는 것을 명시
 // Layout 컴포넌트는 Nav 컴포넌트, Outlet 컴포넌트, Footer 컴포넌트를 렌더링
