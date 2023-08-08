@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import useUserStore from '../../../stores/user.store'
 import axios from "axios";
-import { mockUser } from '../../../mocks/mockUserData'
+import mockUser  from '../../../mocks/mockUserData'
 
 export default function UseAskWriter() {
   //! useParams

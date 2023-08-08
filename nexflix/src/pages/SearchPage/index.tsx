@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import useDebounce from '../../hooks/useDebounce';
 import axios from 'axios';
+import './SearchPage.css'
 
 // 영화 데이터의 인터페이스 정의
 interface Movie {

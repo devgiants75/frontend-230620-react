@@ -1,5 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import MovieModal from './MovieModal';
+// import './Row.css'
 
 interface RowProps {
   // 큰 이미지를 사용할지 결정하는 선택적 prop
@@ -52,8 +54,37 @@ const Row: React.FC<RowProps> = ({ isLargeRow, title, id, fetchUrl }) => {
   }
 
   return (
-    <div>Row</div>
-  )
+    <section className="row">
+      <h2>{title}</h2> {/* row의 제목 출력 */}
+      {/* 각 영화 포스터를 가로 스크롤 형태로 보여주는 부분 */}
+      <div
+        id={id}
+        className="row__posters"
+        style={{
+          display: "flex",
+          overflowX: "scroll",
+          scrollSnapType: "x manatory",
+        }}
+      >
+        {movies.map((movie) => (
+          <div style={{ flex: "none", width: "300px", scrollSnapAlign: "start" }}>
+            <img 
+              src={`https://image.tmdb.org/t/p/original/${isLargeRow ? movie.poster_path : movie.backdrop_path}`}
+              alt={movie.name} 
+              key={movie.id}
+              style={{ padding: "25px 0", width: "100%" }}
+              onClick={() => handleClick(movie)} // 이미지를 클릭하면 해당 handleCick함수를 호출
+            />
+          </div>
+        ))}
+      </div>
+
+      {/* modalOpen이 true일 때, movieSeleted에 영화 정보가 있을 때 MovieModal 렌더링 */}
+      {modalOpen && movieSelected && (
+        <MovieModal {...movieSelected} setModalOpen={setModalOpen} />
+      )}
+    </section>
+  );
 }
 
 export default Row
