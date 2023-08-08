@@ -6,11 +6,13 @@ export default function Footer() {
     <FooterContainer>
       <FooterContent>
         <FooterLinkContainer>
-          <FooterLinkContent>넷플릭스 대한민국</FooterLinkContent>
-          <FooterLink href="https://help.netflix.com/ko">넷플릭스 소개</FooterLink>
-          <FooterLink href="https://help.netflix.com/ko">고객 센터</FooterLink>
-          <FooterLink href="https://help.netflix.com/ko">미디어 센터</FooterLink>
-          <FooterLink href="https://help.netflix.com/ko">이용 약관</FooterLink>
+          <FooterLinkTitle>넷플릭스 대한민국</FooterLinkTitle>
+          <FooterLinkContent>
+            <FooterLink href="https://help.netflix.com/ko">넷플릭스 소개</FooterLink>
+            <FooterLink href="https://help.netflix.com/ko">고객 센터</FooterLink>
+            <FooterLink href="https://help.netflix.com/ko">미디어 센터</FooterLink>
+            <FooterLink href="https://help.netflix.com/ko">이용 약관</FooterLink>
+          </FooterLinkContent>
         </FooterLinkContainer>
         <FooterDescContainer>
           <FooterDescRights>
@@ -34,7 +36,7 @@ const FooterContainer = styled.div`
   // 상단 테두리 설정
   border-top: 1px solid rgb(25, 25, 25);
   // 너비
-  width: 100%
+  width: 100%;
   // z-index 설정
   position: relative;
   z-index: 100;
@@ -45,11 +47,11 @@ const FooterContent = styled.div``;
 
 // FooterLinkContainer 스타일 정의
 const FooterLinkContainer = styled.div`
-  width: 500px
+  width: 500px;
 
   @media (max-width: 768px) {
-    width: 100%
-  }
+    width: 100%;
+  };
 `;
 
 // FooterLinkTitle 스타일 정의
@@ -75,12 +77,12 @@ const FooterLink = styled.a`
   color: gray;
   font-size: 14px;
   width: 110px;
-  margin-bottom: 21px
+  margin-bottom: 21px;
   text-decoration: none;
 
   &:hover {
     text-decoration: underline;
-  }
+  };
 
   @media (max-width: 768px) {
     margin-bottom: 16px;
@@ -88,9 +90,10 @@ const FooterLink = styled.a`
 `;
 
 const FooterDescContainer = styled.div`
-  margin-top: 30px @ media (max-width: 768px) {
+  margin-top: 30px;
+  @media (max-width: 768px) {
     margin-top: 20px;
-  }
+  };
 `;
 
 const FooterDescRights = styled.h2`
