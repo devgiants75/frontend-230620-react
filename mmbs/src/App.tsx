@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useUserStore } from './stores' 
 import mockAxios from './apis/mockAxios';
 
+import Header from './layouts/Header';
 import Footer from './layouts/Footer';
 
 function App() {
@@ -52,6 +53,7 @@ function App() {
 
   return (
     <>
+      <Header />
 
       <Footer />
     </>
