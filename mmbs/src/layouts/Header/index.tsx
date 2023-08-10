@@ -1,13 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState, KeyboardEvent } from 'react'
 import { useUserStore } from '../../stores'
 import { useCookies } from 'react-cookie';
+import { Link } from 'react-router-dom';
 
 import { Box, Divider, Drawer, IconButton, Typography } from '@mui/material';
 import TagFacesIcon from '@mui/icons-material/TagFaces';
 import PersonIcon from '@mui/icons-material/Person';
 
 import logo from '../../assets/images/logo.png'
-import { Link } from 'react-router-dom';
 
 // 로고
 // 페이지명
@@ -103,7 +103,7 @@ export default function Header() {
             </Link>
           ) : (
             // 토큰이 존재하지 않는다면
-            <Link to={"/signIn"}>
+            <Link to={""}>
               <Typography variant="subtitle1" m={2}>
                 로그인
               </Typography>
@@ -115,25 +115,32 @@ export default function Header() {
             flexItem
             sx={{ borderColor: "#000000" }}
           />
-          <Link to={"/signUp"}>
+          <Link to={""}>
             <Typography ml={2} mr={2} component="span">
               회원가입
             </Typography>
           </Link>
-          <>
-            <Divider
-              orientation="vertical"
-              variant="middle"
-              flexItem
-              sx={{ borderColor: "#000000" }}
-            />
-            <IconButton onClick={toggleDrawer(true)}>
-              <PersonIcon sx={{ marginRight: 2, marginLeft: 2 }} />
-            </IconButton>
-            <Drawer anchor={'right'} open={state['right']} onClose={toggleDrawer(false)}>
-              {list()}
-            </Drawer>
-          </>
+          {/* 토큰이 있는 경우에 출력 && 연산자 사용 */}
+          {cookies.token && (
+            <>
+              <Divider
+                orientation="vertical"
+                variant="middle"
+                flexItem
+                sx={{ borderColor: "#000000" }}
+              />
+              <IconButton onClick={toggleDrawer(true)}>
+                <PersonIcon sx={{ marginRight: 2, marginLeft: 2 }} />
+              </IconButton>
+              <Drawer
+                anchor={"right"}
+                open={state["right"]}
+                onClose={toggleDrawer(false)}
+              >
+                {list()}
+              </Drawer>
+            </>
+          )}
         </Box>
       </Box>
     </>
